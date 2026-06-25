@@ -40,3 +40,21 @@ const SelectInput = {
         </div>
     `
 }
+
+const CheckInput = {
+    props: ["value", "name", "label", "required"],
+    template: `
+        <div class="form-check">
+            <input
+                        type="checkbox"
+                        :name="name"
+                        :required="required"
+                        :value="value"
+                        :id="name"
+                        class="form-check-input"/>
+            <label class="form-check-label" :for="name">
+                {{label}}
+            </label>
+        </div>
+    `
+}

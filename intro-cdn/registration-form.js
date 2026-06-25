@@ -9,13 +9,15 @@ const RegistrationForm = {
             <text-input required="required" label="Email" type="email" name="email"></text-input>
             <text-input required="required" label="Password" type="password" name="password"></text-input>
             <select-input label="Favourite Color" name="color" :items="items"></select-input>
+            <check-input label="I Setuju dengan S & K" required="required"></check-input>
             <hr>
             <input type="submit" class="btn btn-outline-primary" value="Register" />
         </form>
     `,
     components: {
         'text-input': TextInput,
-        'select-input': SelectInput
+        'select-input': SelectInput,
+        'check-input': CheckInput
     },
     mounted() {
         (() => {
