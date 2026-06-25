@@ -16,6 +16,16 @@
         <div class="row">
             <div class="col mt-4">
                 {{message}}
+                <br/>
+                {{fish}}
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="app2"> 
+        <div class="row">
+            <div class="col mt-4">
+                {{message}} - {{anjing}}
             </div>
         </div>
     </div>
@@ -27,7 +37,8 @@
 
     <script>
         let data = {
-            message: "Hello world"
+            message: "Hello world",
+            fish: "Iwak peyek"
         }
 
         const vm = Vue.createApp(
@@ -37,6 +48,19 @@
                 }
             }
         ).mount("#app")
+
+        let data2 = {
+            message: "Hello world from data2",
+            anjing: "Anjing kurap"
+        }
+
+        const vm2 = Vue.createApp(
+            {
+                data() {
+                    return data2
+                }
+            }
+        ).mount("#app2")
         </script>
 </body>
 
