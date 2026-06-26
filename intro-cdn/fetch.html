@@ -18,7 +18,7 @@
                     <h3 class="mt-3">Books: {{books.results.length}}</h3>
                     <ul class="list-group">
                         <book-item v-for="item in books.results" v-bind:book="item" v-bind:key="item.id"
-                            v-bind:id="item.id">
+                            v-bind:id="item.id" @remove-book="removeBook">
                         </book-item>
                     </ul>
                 </div>
@@ -43,6 +43,16 @@
         const vm = Vue.createApp({
             data() {
                 return data
+            },
+            methods: {
+                removeBook(id) {
+                    console.log("Removing",id)
+                    this.books.results = this.books.results.filter(
+                        function(item) {
+                            return item.id != id
+                        }
+                    )
+                }
             },
             mounted() {
                 console.log("mounted")
