@@ -68,6 +68,11 @@ const BookItem = {
                 <div class="fw-bold">{{book.title}}</div>
                 {{book.authors[0].name}}
             </div>
+            <span>
+                <a href="#!">
+                    <i class="bi bi-trash"></i>
+                </a>
+            </span>
         </li>
     `
 }
