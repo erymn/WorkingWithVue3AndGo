@@ -1,16 +1,16 @@
 const TextInput = {
-            props: {
-                name: String,
-                type: String,
-                label: String,
-                placeholder: String,
-                required: String,
-                min: String,
-                max: String,
-                value: String,
-                
-            },
-            template: `
+    props: {
+        name: String,
+        type: String,
+        label: String,
+        placeholder: String,
+        required: String,
+        min: String,
+        max: String,
+        value: String,
+
+    },
+    template: `
                 <div class="mb-3">
                     <label v-bind:for="name" class="form-label">{{label}}</label>
                     <input
@@ -25,7 +25,7 @@ const TextInput = {
                         class="form-control"/>
                 </div>
             `
-        }
+}
 
 const SelectInput = {
     props: ["items", "name", "label", "required"],
@@ -57,5 +57,17 @@ const CheckInput = {
                 {{label}}
             </label>
         </div>
+    `
+}
+
+const BookItem = {
+    props: ["book"],
+    template: `
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">{{book.title}}</div>
+                {{book.authors[0].name}}
+            </div>
+        </li>
     `
 }
