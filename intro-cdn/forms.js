@@ -1,4 +1,4 @@
-const TextInput = {
+var TextInput = {
     props: {
         name: String,
         type: String,
@@ -27,7 +27,7 @@ const TextInput = {
             `
 }
 
-const SelectInput = {
+var SelectInput = {
     props: ["items", "name", "label", "required"],
     template: `
         <div class="mb-3">
@@ -41,7 +41,7 @@ const SelectInput = {
     `
 }
 
-const CheckInput = {
+var CheckInput = {
     props: ["value", "name", "label", "required", "checked"],
     template: `
         <div class="form-check">
@@ -60,14 +60,20 @@ const CheckInput = {
     `
 }
 
-const BookItem = {
+var BookItem = {
     props: ["book"],
+    emits: ["remove-book"],
     template: `
         <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
                 <div class="fw-bold">{{book.title}}</div>
-                {{book.authors[0].name}}
+                {{book.authors?.[0]?.name}}
             </div>
+            <span>
+                <a href="#!" @click="$emit('remove-book',book.id)">
+                    <i class="bi bi-trash"></i>
+                </a>
+            </span>
         </li>
     `
 }
