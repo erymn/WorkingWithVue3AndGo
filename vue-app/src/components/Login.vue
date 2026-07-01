@@ -4,14 +4,18 @@
             <div class="col">
                 <h1 class="mt-5">Login</h1>
                 <hr/>
-                <form-tag>
+                <!-- <form-tag v-on:myevent="submitHandler"> -->
+                <form-tag @myevent="submitHandler">         <!--this is the shorthand-->
+                    <!--untuk bind data dari data() function gunakan v-model-->
                     <text-input
+                        v-model="email"
                         label="Email"
                         type="email"
                         name="email"
                         required="true">
                     </text-input>
                     <text-input
+                        v-model="password"
                         label="Password"
                         type="password"
                         name="password"
@@ -35,5 +39,17 @@ export default {
         TextInput,
         FormTag
     },
+    //data function digunakan untuk mengambil data dari field-field under form-tag
+    data(){
+        return {
+            email: "",
+            password: ""
+        }
+    },
+    methods: {
+        submitHandler() {
+            console.log("Submit handler called success")
+        }
+    }
 }
     </script>
